@@ -1,0 +1,21 @@
+<template>
+    
+    <lightning-card title="Google Translator">
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="5">
+                <lightning-input type="text" label="Source Language" name="sourceLanguge" onchange={handleClick} value={sourceLang}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="2">
+                <div class="slds-p-top_large slds-p-left_xx-large slds-">
+                    <lightning-button-icon  icon-name="utility:refresh" alternative-text="Refresh" class="slds-p-around_xx-small " onclick={swaphandler}></lightning-button-icon>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="5">
+                <lightning-input type="text" label="Target Language" name="targetLanguge" onchange={handleClick} value={targetLang}></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-p-around_small slds-text-align_center ">
+            <lightning-button variant="base" label="Translate" title="translate" onclick={translateHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
