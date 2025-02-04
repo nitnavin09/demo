@@ -1,21 +1,50 @@
 <template>
     
     <lightning-card title="Google Translator">
-        <lightning-layout multiple-rows="true">
-            <lightning-layout-item padding="around-small" size="5">
-                <lightning-input type="text" label="Source Language" name="sourceLanguge" onchange={handleClick} value={sourceLang}></lightning-input>
-            </lightning-layout-item>
-            <lightning-layout-item padding="around-small" size="2">
-                <div class="slds-p-top_large slds-p-left_xx-large slds-">
-                    <lightning-button-icon  icon-name="utility:refresh" alternative-text="Refresh" class="slds-p-around_xx-small " onclick={swaphandler}></lightning-button-icon>
-                </div>
-            </lightning-layout-item>
-            <lightning-layout-item padding="around-small" size="5">
-                <lightning-input type="text" label="Target Language" name="targetLanguge" onchange={handleClick} value={targetLang}></lightning-input>
-            </lightning-layout-item>
-        </lightning-layout>
+        <div class="slds-grid  slds-grid_align-space">
+            <lightning-textarea 
+                name="translate"
+                label="Translate"
+                value={translate}
+                placeholder="Traslatated Language"
+                >
+            </lightning-textarea>
+            <div class="slds-col slds-size_2-of-6" >
+                <lightning-combobox
+                    name="sourceLang"
+                    label="Source Language"
+                    value={sourceLang}
+                    placeholder="Select Progress"
+                    options={options}
+                    onchange={handlesrbClick}  >
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-6 padding slds-grow-none">
+                <lightning-button-icon  icon-name="utility:sync" alternative-text="Refresh"  onclick={swaphandler}></lightning-button-icon>
+            </div>
+            <div class="slds-col slds-size_2-of-6">
+                 <lightning-combobox
+                    name="targetLang"
+                    label="Target Language"
+                    value={targetLang}
+                    placeholder="Target Language"
+                    options={options}
+                    onchange={handletrgClick}>
+                </lightning-combobox>
+            </div>
+        </div>
         <div class="slds-p-around_small slds-text-align_center ">
-            <lightning-button variant="base" label="Translate" title="translate" onclick={translateHandler}></lightning-button>
+            <lightning-button variant="brand" label="Translate" title="translate" onclick={translateHandler}></lightning-button>
+        </div>
+        <div lwc:if={translate}>
+
+            <lightning-textarea 
+                name="translate"
+                label="Translate"
+                value={translate}
+                placeholder="Traslatated Language"
+                >
+            </lightning-textarea>
         </div>
     </lightning-card>
 </template>

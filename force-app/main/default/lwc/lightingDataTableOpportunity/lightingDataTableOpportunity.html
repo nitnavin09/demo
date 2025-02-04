@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-p-around_medium">
+    <lightning-card title="List of Opportunities">
+        <lightning-layout vertical-align="end"
+                class="slds-var-m-bottom_small" >
+            <lightning-layout-item flexibility="grow">
+                <lightning-input value={searchName} type="search" label="Search" placeholder="Search by Opportunity Name" onchange={handleInputChange}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-var-p-left_xx-small">
+                <lightning-button variant="brand" label="New Opportunity" onclick={searchHandler}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-p-around_medium" lwc:if={opportunities}>
+            <lightning-datatable
+                key-field="id" 
+                data={opportunities}
+                columns={column}
+            ></lightning-datatable>
+            
+        </div>
+        
+        <div lwc:if={error}>
+            <p>{error.message}</p>
+        </div>
+        
+        </lightning-card>
+    </div>
+</template>

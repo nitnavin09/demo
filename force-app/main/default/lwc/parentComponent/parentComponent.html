@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent Component">
+        <div class="slds-p-around_medium">
+             {parentRecordId}-{parentSobjectname}
+        </div>
+        <div class="slds-p-aroud_medium">
+            <c-child-component name={parentRecordId} phone={parentSobjectname}></c-child-component >
+        </div>
+    </lightning-card>
+</template>
